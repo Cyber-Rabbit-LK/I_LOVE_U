@@ -6,256 +6,68 @@
     <title>Do You Like Me? 💗</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background-color: #ffd1dc; /* Pink background */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-        }
-
-        h1 {
-            color: #d81b60;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .message-box {
-            background-color: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(216, 27, 96, 0.2);
-            margin-bottom: 30px;
-            border: 3px solid #ff80ab;
-            position: relative;
-            transition: transform 0.3s ease;
-        }
-
-        .message-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .question {
-            font-size: 2.2rem;
-            color: #c2185b;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            font-size: 1.5rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .yes-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .no-btn {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .yes-btn:hover {
-            background-color: #388E3C;
-        }
-
-        .no-btn:hover {
-            background-color: #d32f2f;
-        }
-
-        .no-btn.running {
-            animation: runAway 0.5s ease;
-        }
-
-        @keyframes runAway {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(100vw - 100px)); }
-        }
-
-        .response-message {
-            font-size: 2.5rem;
-            color: #d81b60;
-            margin: 30px 0;
-            font-weight: bold;
-            min-height: 60px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .response-message.show {
-            opacity: 1;
-        }
-
-        .heart-container {
-            display: none;
-            position: relative;
-            height: 300px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .heart-container.show {
-            display: block;
-        }
-
-        .heart {
-            position: absolute;
-            color: #ff4081;
-            font-size: 40px;
-            animation: floatUp 4s linear forwards;
-            opacity: 0;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) scale(0.5);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-300px) scale(1.5);
-                opacity: 0;
-            }
-        }
-
-        .big-heart {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            color: #ff4081;
-            font-size: 120px;
-            animation: heartbeat 1.5s ease infinite;
-            z-index: 10;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            5% { transform: translate(-50%, -50%) scale(1.1); }
-            10% { transform: translate(-50%, -50%) scale(1); }
-            15% { transform: translate(-50%, -50%) scale(1.2); }
-            20% { transform: translate(-50%, -50%) scale(1); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .footer {
-            margin-top: 40px;
-            color: #c2185b;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-
-        .instructions {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #c2185b;
-            max-width: 500px;
-            
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #ffd1dc; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; overflow-x: hidden; }
+        .container { max-width: 800px; width: 100%; text-align: center; }
+        h1 { color: #d81b60; font-size: 2.8rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); }
+        .message-box { background-color: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 10px 30px rgba(216, 27, 96, 0.2); margin-bottom: 30px; border: 3px solid #ff80ab; position: relative; transition: transform 0.3s ease; }
+        .message-box:hover { transform: translateY(-5px); }
+        .question { font-size: 2.2rem; color: #c2185b; margin-bottom: 30px; font-weight: bold; }
+        .buttons { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+        .btn { padding: 15px 40px; font-size: 1.5rem; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
+        .yes-btn { background-color: #4CAF50; color: white; }
+        .no-btn { background-color: #f44336; color: white; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); }
+        .yes-btn:hover { background-color: #388E3C; }
+        .no-btn:hover { background-color: #d32f2f; }
+        .no-btn.running { animation: runAway 0.5s ease; }
+        @keyframes runAway { 0% { transform: translateX(0); } 100% { transform: translateX(calc(100vw - 100px)); } }
+        .response-message { font-size: 2.5rem; color: #d81b60; margin: 30px 0; font-weight: bold; min-height: 60px; opacity: 0; transition: opacity 0.5s ease; }
+        .response-message.show { opacity: 1; }
+        .heart-container { display: none; position: relative; height: 300px; width: 100%; margin-top: 20px; }
+        .heart-container.show { display: block; }
+        .heart { position: absolute; color: #ff4081; font-size: 40px; animation: floatUp 4s linear forwards; opacity: 0; }
+        @keyframes floatUp { 0% { transform: translateY(0) scale(0.5); opacity: 1; } 100% { transform: translateY(-300px) scale(1.5); opacity: 0; } }
+        .big-heart { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0); color: #ff4081; font-size: 120px; animation: heartbeat 1.5s ease infinite; z-index: 10; }
+        @keyframes heartbeat { 0% { transform: translate(-50%, -50%) scale(1); } 5% { transform: translate(-50%, -50%) scale(1.1); } 10% { transform: translate(-50%, -50%) scale(1); } 15% { transform: translate(-50%, -50%) scale(1.2); } 20% { transform: translate(-50%, -50%) scale(1); } 100% { transform: translate(-50%, -50%) scale(1); } }
+        .footer { margin-top: 40px; color: #c2185b; font-size: 1.2rem; text-align: center; }
+        .instructions { background-color: rgba(255, 255, 255, 0.8); padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 1rem; color: #c2185b; max-width: 500px; }
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .question {
-                font-size: 1.8rem;
-            }
-            
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 80%;
-                max-width: 250px;
-            }
-            
-            .response-message {
-                font-size: 2rem;
-            }
+            h1 { font-size: 2rem; }
+            .question { font-size: 1.8rem; }
+            .buttons { flex-direction: column; align-items: center; gap: 15px; }
+            .btn { width: 80%; max-width: 250px; }
+            .response-message { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="instructions">
-            <p><i class="fas fa-heart" style="color:#ff4081"></i>  ඔයා හරිම ලස්සනයි, මම ඔයාට කැමතියි ❤️ </p>
-        </div>
         <h1>💗 Special Question For You 💗</h1>
-        
         <div class="message-box">
             <div class="question">Do you like me? ❤️</div>
-            
             <div class="buttons">
                 <button class="btn yes-btn" id="yesBtn">Yes! 💖</button>
                 <button class="btn no-btn" id="noBtn">No 😢</button>
             </div>
         </div>
-        
         <div class="response-message" id="responseMessage"></div>
-        
         <div class="heart-container" id="heartContainer">
             <div class="big-heart">❤️</div>
         </div>
-        
-        
-        
-        <div class="footer">
-            Developed By Vidura Lakshan | Single Boy
+        <div class="instructions">
+            <p><i class="fas fa-heart" style="color:#ff4081"></i> "Yes" බටන් එක ඔබලා බලන්න! "No" බටන් එකත් උත්සහ කරලා බලන්න 😊</p>
         </div>
+        <div class="footer">Made with ❤️ using HTML, CSS & JavaScript</div>
     </div>
 
     <script>
-        // Get DOM elements
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
         const responseMessage = document.getElementById('responseMessage');
         const heartContainer = document.getElementById('heartContainer');
         const messageBox = document.querySelector('.message-box');
         
-        // Variables to track button movements
         let clickCount = 0;
         const noMessages = [
             "Are you sure? 😢",
@@ -265,35 +77,19 @@
             "You're breaking my heart! 💔"
         ];
         
-        // Handle Yes button click
         yesBtn.addEventListener('click', function() {
-            // Show the response message
             responseMessage.textContent = "I LOVE YOU! 💕";
             responseMessage.classList.add('show');
-            
-            // Hide the message box
             messageBox.style.display = 'none';
-            
-            // Show heart animation container
             heartContainer.classList.add('show');
-            
-            // Create multiple floating hearts
             createHearts();
-            
-            // Show big heart with heartbeat animation
             const bigHeart = document.querySelector('.big-heart');
             bigHeart.style.display = 'block';
-            
-            // Play a sound (optional - using a simple beep)
             playLoveSound();
         });
         
-        // Handle No button click
         noBtn.addEventListener('click', function() {
-            // Make the button run away
             noBtn.classList.add('running');
-            
-            // Update message based on click count
             if (clickCount < noMessages.length) {
                 responseMessage.textContent = noMessages[clickCount];
                 responseMessage.classList.add('show');
@@ -302,91 +98,59 @@
                 responseMessage.textContent = "OK, I give up... 😔";
                 responseMessage.classList.add('show');
             }
-            
-            // Reset the running animation after it completes
             setTimeout(() => {
                 noBtn.classList.remove('running');
-                
-                // Move the button to a random position
                 moveNoButton();
             }, 500);
         });
         
-        // Move No button to random position
         function moveNoButton() {
             const container = document.querySelector('.container');
             const containerRect = container.getBoundingClientRect();
             const buttonRect = noBtn.getBoundingClientRect();
-            
-            // Calculate random position within container
             const maxX = containerRect.width - buttonRect.width;
             const maxY = containerRect.height - buttonRect.height;
-            
             const randomX = Math.floor(Math.random() * maxX);
             const randomY = Math.floor(Math.random() * maxY);
-            
-            // Position the button absolutely within container
             noBtn.style.position = 'absolute';
             noBtn.style.left = `${randomX}px`;
             noBtn.style.top = `${randomY}px`;
         }
         
-        // Create floating hearts animation
         function createHearts() {
-            // Clear any existing hearts (except the big one)
             const existingHearts = document.querySelectorAll('.heart');
             existingHearts.forEach(heart => heart.remove());
-            
-            // Create 50 floating hearts
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.classList.add('heart');
                     heart.innerHTML = '❤️';
-                    
-                    // Random position and size
                     const size = Math.random() * 30 + 20;
                     const startX = Math.random() * 100;
-                    
                     heart.style.left = `${startX}%`;
                     heart.style.fontSize = `${size}px`;
                     heart.style.animationDelay = `${Math.random() * 2}s`;
-                    
-                    // Random color for hearts
                     const colors = ['#ff4081', '#e91e63', '#d81b60', '#c2185b', '#ad1457'];
                     const color = colors[Math.floor(Math.random() * colors.length)];
                     heart.style.color = color;
-                    
                     heartContainer.appendChild(heart);
-                    
-                    // Remove heart after animation completes
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 4000);
+                    setTimeout(() => { heart.remove(); }, 4000);
                 }, i * 100);
             }
-            
-            // Continue creating hearts every 5 seconds
             setTimeout(createHearts, 5000);
         }
         
-        // Play a simple love sound
         function playLoveSound() {
-            // Create audio context for simple beep
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 const oscillator = audioContext.createOscillator();
                 const gainNode = audioContext.createGain();
-                
                 oscillator.connect(gainNode);
                 gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.value = 523.25; // C5 note
+                oscillator.frequency.value = 523.25;
                 oscillator.type = 'sine';
-                
                 gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
                 gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
-                
                 oscillator.start(audioContext.currentTime);
                 oscillator.stop(audioContext.currentTime + 1);
             } catch (e) {
@@ -394,7 +158,6 @@
             }
         }
         
-        // Initialize - move No button to a random position
         window.addEventListener('load', moveNoButton);
     </script>
 </body>
